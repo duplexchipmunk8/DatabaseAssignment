@@ -133,7 +133,7 @@ public class CarSearch extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
                     System.out.println(resultList.getSelectedValue());
-                    new Menu().setVisible(true);
+                    new Menu((Vehicle) resultList.getSelectedValue()).setVisible(true);
 
                 }
             }
@@ -159,9 +159,9 @@ public class CarSearch extends JFrame {
 
                     if (cars.size() > 0) {
 
-                        String[] data = new String[cars.size()];
+                        Vehicle[] data = new Vehicle[cars.size()];
                         for (int i = 0; i < cars.size(); i++) {
-                            data[i] = cars.get(i).getYear() + " " + cars.get(i).getBrand() + " " + cars.get(i).getModel();
+                            data[i] = cars.get(i);
                         }
 
                         resultList.setListData(data);

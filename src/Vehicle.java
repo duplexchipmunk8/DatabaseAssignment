@@ -74,18 +74,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "code=" + code +
-                ", passengers=" + passengers +
-                ", size='" + size + '\'' +
-                ", hasAC=" + hasAC +
-                ", color='" + color + '\'' +
-                ", isAuto=" + isAuto +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", priceCode=" + priceCode +
-                ", quantity=" + quantity +
-                '}';
+        return getYear() + " " + getBrand() + " " + getModel();
     }
 }

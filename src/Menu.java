@@ -18,11 +18,11 @@ public class Menu extends JFrame {
 
     private JPanel contentPane;
 
-    public static void main(String[] args) {
+    public static void main(final Vehicle vehicle) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    Menu frame = new Menu();
+                    Menu frame = new Menu(vehicle);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -31,9 +31,9 @@ public class Menu extends JFrame {
         });
     }
 
-    public Menu() {
+    public Menu(Vehicle vehicle) {
 
-        setTitle("Rentals");
+        setTitle("Rentals for " + vehicle.toString());
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -129,6 +129,7 @@ public class Menu extends JFrame {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });
