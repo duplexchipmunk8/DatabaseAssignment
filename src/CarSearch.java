@@ -10,6 +10,8 @@ import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -126,6 +128,17 @@ public class CarSearch extends JFrame {
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane);
 
+        resultList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    System.out.println(resultList.getSelectedValue());
+                    new Menu().setVisible(true);
+
+                }
+            }
+        });
+
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -149,7 +162,6 @@ public class CarSearch extends JFrame {
                         String[] data = new String[cars.size()];
                         for (int i = 0; i < cars.size(); i++) {
                             data[i] = cars.get(i).getYear() + " " + cars.get(i).getBrand() + " " + cars.get(i).getModel();
-                            System.out.println(data[i]);
                         }
 
                         resultList.setListData(data);
