@@ -21,6 +21,7 @@ public class SQLiteJDBC {
 
         Statement stmt = null;
 
+        /*
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:CarRentalService.db");
@@ -204,9 +205,9 @@ public class SQLiteJDBC {
         System.out.println("Records created successfully");
 
 
+*/
 
 
-    /*
 
 
 
@@ -218,17 +219,17 @@ public class SQLiteJDBC {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "SELECT * FROM VEHICLE_DETAILS";
+            String sql = "SELECT * FROM CUSTOMER";
             ResultSet rs = stmt.executeQuery(sql);
 
             while ( rs.next() ) {
-                System.out.println(rs.getInt("VEHICLE_CODE"));
-                System.out.println(rs.getString("VEHICLE_MODEL"));
+                System.out.println(rs.getInt("CUSTOMER_ID") + " " + rs.getString("CUSTOMER_FNAME") + rs.getString("CUSTOMER_LNAME"));
             }
 
             rs.close();
             stmt.close();
             c.close();
+
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -236,7 +237,7 @@ public class SQLiteJDBC {
         System.out.println("Operation done successfully");
 
 
-*/
+
 
 
 

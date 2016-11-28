@@ -144,6 +144,7 @@ public class CarSearch extends JFrame {
 
                 Connection c = null;
                 Statement stmt = null;
+
                 try {
                     Class.forName("org.sqlite.JDBC");
                     c = DriverManager.getConnection("jdbc:sqlite:CarRentalService.db");

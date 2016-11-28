@@ -1,4 +1,9 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -92,5 +97,42 @@ public class Registration extends JFrame {
 		btnNewButton = new JButton("Register");
 		btnNewButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		panel_3.add(btnNewButton);
+
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (txtCity.getText().equals("City") || txtFirstName.getText().equals("First Name") ||
+						txtLastName.getText().equals("Last Name") || txtPostalCode.getText().equals("Postal Code") ||
+						txtStreet.getText().equals("Street") || txtProvince.getText().equals("Province")) {
+					JOptionPane.showMessageDialog(null, "Please fill in all boxes", "Error", JOptionPane.INFORMATION_MESSAGE);
+				} else if (txtProvince.getText().length() != 2) {
+                    JOptionPane.showMessageDialog(null, "Please enter province using 2 letter code", "Error", JOptionPane.INFORMATION_MESSAGE);
+                } else  {
+                    Connection c = null;
+                    Statement stmt = null;
+
+                    String sql = "INSERT INTO `CUSTOMER` (`CUSTOMER_FNAME`, `CUSTOMER_LNAME`, `CUSTOMER_STREET`, `CUSTOMER_CITY`, `CUSTOMER_PROVINCE`, `CUSTOMER_POSTALCODE`, `CUSTOMER_BALANCE`) \n" +
+                            "VALUES ('" + txtFirstName.getText() + "', '" + txtLastName.getText() +
+                            "', '" + txtStreet.getText() + "', '" + txtCity.getText() + "', '" +
+                            txtProvince.getText() + "', '" + txtProvince.getText() + "', '0');";
+
+                    try {
+                        Class.forName("org.sqlite.JDBC");
+                        c = DriverManager.getConnection("jdbc:sqlite:CarRentalService.db");
+                        c.setAutoCommit(false);
+                        stmt = c.createStatement();
+                        stmt.executeUpdate(sql);
+                        stmt.close();
+                        c.commit();
+                        c.close();
+                        new CarSearch().setVisible(true);
+                        setVisible(false);
+                    } catch (Exception ex) {
+                        System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );
+                        System.exit(0);
+                    }
+                }
+			}
+		});
 	}
 }
