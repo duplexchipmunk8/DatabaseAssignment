@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +18,13 @@ public class Login extends JFrame {
     private JTextField txtUserId;
 
     public static void main(String[] args) {
+
+
+        File file = new File("CarRentalService.db");
+        if (!file.exists()) {
+            SQLiteJDBC.initializeDatabase();
+        }
+
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

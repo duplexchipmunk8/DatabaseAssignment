@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DatabaseAssignment:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DatabaseAssignment_jar</output-path>
+    <root id="archive" name="DatabaseAssignment_jar.jar">
+      <element id="archive" name="DatabaseAssignment.jar">
+        <element id="module-output" name="DatabaseAssignment" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/sqlite-jdbc-3.15.1.jar" />
+    </root>
+  </artifact>
+</component>

@@ -143,6 +143,7 @@ public class Menu extends JFrame {
 
                 if (vehicle.getQuantity() <= 0) {
                     JOptionPane.showMessageDialog(null, "The selected vehicle is not in stock.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    setVisible(false);
                     return;
                 }
 
@@ -171,7 +172,10 @@ public class Menu extends JFrame {
                 }
 
                 try {
-                    vehicle.rent(new Rental(utilDateFrom, utilDateTo, customer));
+                    boolean complete = vehicle.rent(new Rental(utilDateFrom, utilDateTo, customer));
+                    if (complete) {
+                        setVisible(false);
+                    }
                 } catch (SQLException | ClassNotFoundException e1) {
                     e1.printStackTrace();
                 }

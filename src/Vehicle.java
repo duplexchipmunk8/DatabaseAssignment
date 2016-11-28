@@ -93,7 +93,7 @@ public class Vehicle {
         return details;
     }
 
-    public void rent(Rental rental) throws SQLException, ClassNotFoundException {
+    public boolean rent(Rental rental) throws SQLException, ClassNotFoundException {
 
         double dailyPrice = 0, totalPrice = 0;
         int rentalId = 0;
@@ -127,7 +127,7 @@ public class Vehicle {
                 "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (result == JOptionPane.NO_OPTION || result == JOptionPane.CLOSED_OPTION)
-            return;
+            return false;
 
         //Create the rental
         sql = "INSERT INTO RENTAL (`RENTAL_DATE`, `CUSTOMER_ID`) VALUES (" + rental.getDateFrom().getTime() + ", " + rental.getCustomer().getCustomerID() + ")";
@@ -149,11 +149,18 @@ public class Vehicle {
                 "WHERE CAR_CODE = '"+getCode()+"'";
 
         stmt.executeUpdate(sql);
+
+        //update the customers balance
+        sql = "UPDATE CUSTOMER SET CUSTOMER_BALANCE = CUSTOMER_BALANCE + " + totalPrice + " WHERE CUSTOMER_ID = '" +
+                rental.getCustomer().getCustomerID() + "';";
+
+        stmt.executeUpdate(sql);
         stmt.close();
         c.commit();
         c.close();
         decrementQuantity();
 
-        JOptionPane.showMessageDialog(null, "Success!!", "Not an error!", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Rental Completed! The balance has been applied to your account.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        return true;
     }
 }

@@ -4,9 +4,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SQLiteJDBC {
-    public static void main(String args[]) {
 
+    public static void initializeDatabase() {
 
+        System.out.println("Beginning initial database setup");
 
         Connection c = null;
         try {
@@ -199,8 +200,9 @@ public class SQLiteJDBC {
         }
         System.out.println("Records created successfully");
 
+    }
 
-
+    public static void main(String args[]) {
 
 
         /*
