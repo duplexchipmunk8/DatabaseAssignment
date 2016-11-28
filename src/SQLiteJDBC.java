@@ -18,10 +18,8 @@ public class SQLiteJDBC {
         }
         System.out.println("Opened database successfully");
 
-
         Statement stmt = null;
 
-        /*
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:CarRentalService.db");
@@ -101,9 +99,6 @@ public class SQLiteJDBC {
             System.exit(0);
         }
         System.out.println("Table created successfully");
-
-
-
 
 
         try {
@@ -205,9 +200,10 @@ public class SQLiteJDBC {
         System.out.println("Records created successfully");
 
 
-*/
 
 
+
+        /*
 
 
 
@@ -236,8 +232,7 @@ public class SQLiteJDBC {
         }
         System.out.println("Operation done successfully");
 
-
-
+*/
 
 
 

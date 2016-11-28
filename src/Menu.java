@@ -45,9 +45,12 @@ public class Menu extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(new GridLayout(6, 6, 4, 4));
 
-        JLabel details = new JLabel(vehicle.getDetails());
-        contentPane.add(details);
-
+        contentPane.add(new JLabel("Vehicle: " + vehicle.toString()));
+        contentPane.add(new JLabel("Color: " + vehicle.getColor()));
+        contentPane.add(new JLabel("Size: " + vehicle.getSize()));
+        contentPane.add(new JLabel("AC: " + (vehicle.hasAC() ? "Yes" : "No")));
+        contentPane.add(new JLabel("Transmission: " + (vehicle.isAuto() ? "Automatic" : "Manual")));
+        contentPane.add(new JLabel("Passengers: " + vehicle.getPassengers()));
 
 
         JPanel p1 = new JPanel();
@@ -163,65 +166,15 @@ public class Menu extends JFrame {
                         return;
                     }
 
-                    //Insert the new rental
-                    String sql = "INSERT INTO RENTAL (`RENTAL_DATE`, `CUSTOMER_ID`) VALUES (" + utilDateFrom.getTime() + ", " + customer.getCustomerID() + ")";
-                    Connection c = null;
-                    Statement stmt = null;
-                    int rentalId;
-
-                    Class.forName("org.sqlite.JDBC");
-                    c = DriverManager.getConnection("jdbc:sqlite:CarRentalService.db");
-                    c.setAutoCommit(false);
-                    stmt = c.createStatement();
-                    stmt.executeUpdate(sql);
-
-                    ResultSet rs = stmt.getGeneratedKeys();
-                    if (rs.next()) {
-
-                        //Get the new rental id
-                        rentalId = rs.getInt(1);
-
-                        //Get the price of the rental
-                        sql = "SELECT PRICE_RENTFEE FROM CAR AS C \n" +
-                                "INNER JOIN VEHICLE_DETAILS AS V on C.VEHICLE_CODE = V.VEHICLE_CODE\n" +
-                                "INNER JOIN PRICE AS P on P.PRICE_CODE = V.PRICE_CODE " +
-                                "WHERE V.VEHICLE_CODE = '" + vehicle.getCode() +"';";
-
-                        rs = stmt.executeQuery(sql);
-
-                        double dailyPrice = 0;
-                        double totalPrice;
-                        long diff = utilDateTo.getTime() - utilDateFrom.getTime();
-                        int duration = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-
-
-                        if (rs.next()) {
-                            dailyPrice = rs.getDouble("PRICE_RENTFEE");
-                            totalPrice = dailyPrice * duration;
-
-                            sql = "INSERT INTO RENTAL_DETAILS (`RENTAL_NUMBER`, `CAR_CODE`, `DETAIL_FEE`, `DETAIL_DUEDATE`, `DETAIL_LATEFEE`)\n" +
-                                    "VALUES (" +rentalId+", "+vehicle.getCode()+", " +totalPrice+ ", "+utilDateTo.getTime()+", 0);";
-
-                            stmt.executeUpdate(sql);
-
-                            sql = "UPDATE CAR\n" +
-                                    "SET CAR_QUANTITY = CAR_QUANTITY - 1\n" +
-                                    "WHERE CAR_CODE = '"+vehicle.getCode()+"'";
-
-                            stmt.executeUpdate(sql);
-                        }
-                    }
-                    stmt.close();
-                    c.commit();
-                    c.close();
-                } catch (ParseException ex) {
-                    System.out.println(e.toString());
+                } catch (Exception ex) {
                     ex.printStackTrace();
-                } catch (ClassNotFoundException | SQLException e1) {
-                    e1.printStackTrace();
                 }
 
-                JOptionPane.showMessageDialog(null, "Success!!", "Not an error!", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    vehicle.rent(new Rental(utilDateFrom, utilDateTo, customer));
+                } catch (SQLException | ClassNotFoundException e1) {
+                    e1.printStackTrace();
+                }
 
             }
         });

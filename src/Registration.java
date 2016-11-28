@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -122,10 +123,24 @@ public class Registration extends JFrame {
                         c.setAutoCommit(false);
                         stmt = c.createStatement();
                         stmt.executeUpdate(sql);
+                        ResultSet rs = stmt.getGeneratedKeys();
+                        Customer customer = new Customer();
+                        int customerId = -1;
+                        if (rs.next()) {
+                            customerId = rs.getInt(1);
+                        }
+                        customer.setCustomerID(customerId);
+                        customer.setfName(txtFirstName.getText());
+                        customer.setlName(txtLastName.getText());
+                        customer.setCity(txtCity.getText());
+                        customer.setPostalCode(txtPostalCode.getText());
+                        customer.setProvince(txtProvince.getText());
+                        customer.setBalance(0);
                         stmt.close();
                         c.commit();
                         c.close();
-                        //new CarSearch(customer).setVisible(true);
+                        JOptionPane.showMessageDialog(null, "Your user ID is " + customerId + ". You can use it along with your last name to log in.", "User Created!", JOptionPane.INFORMATION_MESSAGE);
+                        new CarSearch(customer).setVisible(true);
                         setVisible(false);
                     } catch (Exception ex) {
                         System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );

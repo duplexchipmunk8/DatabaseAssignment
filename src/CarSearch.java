@@ -52,7 +52,6 @@ public class CarSearch extends JFrame {
 
     public CarSearch(final Customer customer) {
 
-        System.out.println(customer.getfName());
         setFont(new Font("Helvetica", Font.PLAIN, 14));
         setTitle("Car Search");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
