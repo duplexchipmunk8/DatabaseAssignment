@@ -41,7 +41,9 @@ public class Login extends JFrame {
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
-		
+
+        JLabel lNameLabel = new JLabel("Last Name ");
+        panel.add(lNameLabel);
 		lnameField = new JTextField();
 		lnameField.setText("Last Name");
 		lnameField.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
@@ -50,7 +52,9 @@ public class Login extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1);
-		
+
+        JLabel userIdLabel = new JLabel("User ID ");
+        panel_1.add(userIdLabel);
 		txtUserId = new JTextField();
 		txtUserId.setText("User ID");
 		txtUserId.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
@@ -81,8 +85,11 @@ public class Login extends JFrame {
                     ResultSet rs = stmt.executeQuery(sql);
                     while (rs.next()) {
                         if (rs.getInt("CUSTOMER_ID") >=0) {
-                            new CarSearch().setVisible(true);
+                            Customer customer = new Customer(rs);
+                            new CarSearch(customer).setVisible(true);
                             setVisible(false);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "An error occurred", "Error", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
 

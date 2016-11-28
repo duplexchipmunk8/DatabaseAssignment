@@ -219,11 +219,11 @@ public class SQLiteJDBC {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "SELECT * FROM CUSTOMER";
+            String sql = "SELECT * FROM RENTAL";
             ResultSet rs = stmt.executeQuery(sql);
 
             while ( rs.next() ) {
-                System.out.println(rs.getInt("CUSTOMER_ID") + " " + rs.getString("CUSTOMER_FNAME") + rs.getString("CUSTOMER_LNAME"));
+                System.out.println(rs.getInt("RENTAL_NUMBER") + " " + rs.getDate("RENTAL_DATE") +  " " + rs.getInt("CUSTOMER_ID"));
             }
 
             rs.close();

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -40,7 +41,7 @@ public class Vehicle {
         return size;
     }
 
-    public boolean isHasAC() {
+    public boolean hasAC() {
         return hasAC;
     }
 
@@ -75,5 +76,16 @@ public class Vehicle {
     @Override
     public String toString() {
         return getYear() + " " + getBrand() + " " + getModel();
+    }
+
+    public String getDetails() {
+        String details = toString() + "\n";
+        details += "Color: " + getColor() + "\n";
+        details += "Size: " + getSize() + "\n";
+        details += "AC: " + (hasAC ? "Yes" : "No") + "\n";
+        details += "Transmission: " + (isAuto ? "Automatic" : "Manual") + "\n";
+        details += "Passengers: " + getPassengers() + "\n";
+
+        return details;
     }
 }

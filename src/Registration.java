@@ -125,7 +125,7 @@ public class Registration extends JFrame {
                         stmt.close();
                         c.commit();
                         c.close();
-                        new CarSearch().setVisible(true);
+                        //new CarSearch(customer).setVisible(true);
                         setVisible(false);
                     } catch (Exception ex) {
                         System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );

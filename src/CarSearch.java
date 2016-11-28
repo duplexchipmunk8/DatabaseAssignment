@@ -1,6 +1,3 @@
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 
@@ -39,12 +36,12 @@ public class CarSearch extends JFrame {
     JScrollPane scrollPane;
     private JButton searchButton;
 
-    public static void main(String[] args) {
+    public static void main(final Customer customer) {
 
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CarSearch frame = new CarSearch();
+                    CarSearch frame = new CarSearch(customer);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -53,8 +50,9 @@ public class CarSearch extends JFrame {
         });
     }
 
-    public CarSearch() {
+    public CarSearch(final Customer customer) {
 
+        System.out.println(customer.getfName());
         setFont(new Font("Helvetica", Font.PLAIN, 14));
         setTitle("Car Search");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +71,7 @@ public class CarSearch extends JFrame {
         searchBox.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         searchBox.setText("Keyword");
 
-        JLabel searchLabel = new JLabel("Search: ");
+        JLabel searchLabel = new JLabel("Search by make: ");
         p1.add(searchLabel);
         p1.add(searchBox);
         searchBox.setColumns(20);
@@ -124,6 +122,8 @@ public class CarSearch extends JFrame {
         searchButton = new JButton("Search");
         searchButton.setFont(new Font("Helvetica", Font.PLAIN, 14));
 
+        JLabel instruction = new JLabel("Double click a car to proceed");
+        contentPane.add(instruction);
         resultList = new JList();
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane);
@@ -132,8 +132,7 @@ public class CarSearch extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    System.out.println(resultList.getSelectedValue());
-                    new Menu((Vehicle) resultList.getSelectedValue()).setVisible(true);
+                    new Menu((Vehicle) resultList.getSelectedValue(), customer).setVisible(true);
 
                 }
             }
