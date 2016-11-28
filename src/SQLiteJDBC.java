@@ -143,41 +143,49 @@ public class SQLiteJDBC {
 
             sql = "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Coupe', 1, 'Orange', 1, 'BMW', 'M4', '2016', '04');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Sedan', 1, 'Red', 1, 'BMW', 'M3', '2014', '04');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (2, 'Convertible', 1, 'White', 0, 'Mercedes-Benz', 'SL400 Roadster', '2016', '04');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Sedan', 1, 'Black', 1, 'Rolls-Royce', 'Phantom', '2012', '05');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Coupe', 1, 'Black', 1, 'Rolls-Royce', 'Wraith', '2015', '05');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (2, 'Coupe', 1, 'Red', 1, 'Ferrari', 'LaFerrari', '2016', '05');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (2, 'Coupe', 1, 'Yellow', 0, 'Aston Martin', 'Vantage', '2013', '04');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
-                    "VALUES (2, 'Coupe', 1, 'Blue', 1, 'Lamborghini', 'Aventador', '2015', '05');\n" +
-                    "\n" +
+                    "VALUES (2, 'Coupe', 1, 'Green', 1, 'Lamborghini', 'Aventador', '2015', '05');\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Sedan', 1, 'Black', 1, 'Bentley', 'Mulsanne', '2016', '05');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
                     "VALUES (4, 'Convertible', 1, 'Red', 1, 'Maserati', 'GranTurismo', '2012', '05');\n" +
-                    "\n" +
                     "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
-                    "VALUES (4, 'Sedan', 1, 'Red', 0, 'BMW', 'M6', '2014', '05');";
+                    "VALUES (4, 'Sedan', 1, 'Red', 0, 'BMW', 'M6', '2014', '05');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (4, 'Sedan', 1, 'Black', 0, 'BMW', 'M5', '2015', '04');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (4, 'Sedan', 1, 'White', 1, 'Mercedes-Benz', 'AMG C-43', '2014', '04');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'Blue', 0, 'Ferrari', '488 Spider', '2015', '05');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (4, 'Sedan', 1, 'White', 1, 'Maserati', 'Ghibli', '2015', '04');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'Yellow', 1, 'Aston Martin', 'Vanquish', '2016', '05');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'Orange', 1, 'Lamborghini', 'Huracan', '2016', '05');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'Black', 0, 'Porsche', '911 Carrera', '2014', '04');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'White', 0, 'Porsche', '911 Carrera Turbo', '2014', '04');\n" +
+                    "INSERT INTO `VEHICLE_DETAILS` (`VEHICLE_PASSENGERS`, `VEHICLE_SIZE`, `VEHICLE_AC`, `VEHICLE_COLOR`, `VEHICLE_AUTOMATIC`, `VEHICLE_BRAND`, `VEHICLE_MODEL`, `VEHICLE_YEAR`, `PRICE_CODE`) \n" +
+                    "VALUES (2, 'Coupe', 1, 'Red', 0, 'Porsche', '911 Carrera GTS', '2016', '05');";
 
 
             stmt.executeUpdate(sql);
 
-            sql = " INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (01, 2);\n" +
+            sql = "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (01, 2);\n" +
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (02, 1);\n" +
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (03, 3);\n" +
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (04, 1);\n" +
@@ -187,7 +195,16 @@ public class SQLiteJDBC {
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (08, 2);\n" +
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (09, 1);\n" +
                     "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (10, 1);\n" +
-                    "\n";
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (11, 2);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (12, 1);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (13, 2);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (14, 1);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (15, 1);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (16, 1);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (17, 3);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (18, 1);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (19, 2);\n" +
+                    "INSERT INTO `CAR` (`VEHICLE_CODE`, `CAR_QUANTITY`) VALUES (20, 1);";
 
             stmt.executeUpdate(sql);
 

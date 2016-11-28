@@ -21,16 +21,11 @@ public class CarSearch extends JFrame {
     private JTextField searchBox;
     private JPanel p3;
     private JPanel p2;
-    private JCheckBox cb1;
-    private JCheckBox cb2;
-    private JCheckBox cb3;
-    private JCheckBox cb4;
-    private JCheckBox cb5;
-    private JCheckBox cb6;
     private JComboBox<String> make;
     private JComboBox<String> color;
     private JComboBox<String> transmission;
     private JComboBox<String> year;
+    private JComboBox<String> size;
     private JPanel p4;
     private JList resultList;
     JScrollPane scrollPane;
@@ -80,10 +75,11 @@ public class CarSearch extends JFrame {
         p3.setLayout(new GridLayout(0, 3, 0, 0));
 
 
-        String[] makes = {"Make", "BMW", "Mercedes-Benz", "Aston Martin", "Rolls-Royce", "Bentley", "Lamborghini", "Maserati", "Ferrari", "chevrolet"};
+        String[] makes = {"Make", "BMW", "Mercedes-Benz", "Aston Martin", "Rolls-Royce", "Bentley", "Porsche", "Lamborghini", "Maserati", "Ferrari", "chevrolet"};
         String[] colors = {"Color", "Red", "Orange", "Yellow", "Green", "Blue", "White", "Black"};
         String[] transmissions = {"Transmission", "Manual", "Automatic"};
         String[] years = {"Year", "2012", "2013", "2014", "2015", "2016"};
+        String[] sizes = {"Size", "Sedan", "Coupe"};
 
         make = new JComboBox<String>();
         make.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
@@ -111,6 +107,11 @@ public class CarSearch extends JFrame {
         year.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
         year.setModel(new DefaultComboBoxModel<String>(years));
         p2.add(year);
+
+        size = new JComboBox<String>();
+        size.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
+        size.setModel(new DefaultComboBoxModel<String>(sizes));
+        p2.add(size);
 
 
         p4 = new JPanel();
@@ -231,6 +232,14 @@ public class CarSearch extends JFrame {
                 where += " AND ";
             }
             where += " VEHICLE_YEAR = '" + year.getSelectedItem() + "' ";
+        }
+
+        if (size.getSelectedIndex() != 0) {
+            if (!where.equals("")) {
+                where += " AND ";
+            }
+
+            where += " VEHICLE_SIZE = '" + size.getSelectedItem() + "' ";
         }
 
         if (!where.equals("")) {

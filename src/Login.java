@@ -19,7 +19,6 @@ public class Login extends JFrame {
 
     public static void main(String[] args) {
 
-
         File file = new File("CarRentalService.db");
         if (!file.exists()) {
             SQLiteJDBC.initializeDatabase();
