@@ -80,12 +80,10 @@ public class CarSearch extends JFrame {
         p3.setLayout(new GridLayout(0, 3, 0, 0));
 
 
-
         String[] makes = {"Make", "BMW", "Mercedes-Benz", "Aston Martin", "Rolls-Royce", "Bentley", "Lamborghini", "Maserati", "Ferrari", "chevrolet"};
         String[] colors = {"Color", "Red", "Orange", "Yellow", "Green", "Blue", "White", "Black"};
         String[] transmissions = {"Transmission", "Manual", "Automatic"};
         String[] years = {"Year", "2012", "2013", "2014", "2015", "2016"};
-
 
         make = new JComboBox<String>();
         make.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
